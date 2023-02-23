@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${smart_cook_book.url}
+    username: ${smart_cook_book.username}
+    password: ${smart_cook_book.password}
+

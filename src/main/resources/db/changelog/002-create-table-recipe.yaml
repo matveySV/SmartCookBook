@@ -1,0 +1,80 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002
+      author: MatviienkoSerhii
+      changes:
+#        - sql:
+#            sql: CREATE TYPE complexity_level AS ENUM ('EASY', 'AVERAGE', 'HARD')
+        - sql:
+            sql: CREATE TYPE yield_type_choice AS ENUM ('SERVING', 'ITEM')
+        - createTable:
+            tableName: recipe
+            columns:
+              - column:
+                  name: recipe_id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(1000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: note
+                  type: varchar(500)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: isfavorite
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: time
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: instruction
+                  type: varchar
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rate
+                  type: int
+                  constraints:
+                    nullable: true
+              - column:
+                  name: yield
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: yield_type
+                  type: yield_type_choice
+                  constraints:
+                    nullable: false
+              - column:
+                  name: complexity
+                  type: complexity_level
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user_id
+                    references: user(user_id)

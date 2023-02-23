@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - include:
+      file: 001-create-table-user.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 002-create-table-recipe.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 003-create-table-ingredient.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 004-create-table-recipe_ingredient.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 005-create-table-image.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 006-create-table-tag.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 007-create-table-recipe_tag.yaml
+      relativeToChangelogFile: true

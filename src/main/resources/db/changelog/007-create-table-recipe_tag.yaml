@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: 007
+      author: MatviienkoSerhii
+      changes:
+        - createTable:
+            tableName: recipe_tag
+            columns:
+              - column:
+                  name: recipe_tag_id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: recipe_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_recipe_id
+                    references: recipe(recipe_id)
+              - column:
+                  name: tag_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_tag_id
+                    references: tag(tag_id)

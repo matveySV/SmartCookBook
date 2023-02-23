@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004
+      author: MatviienkoSerhii
+      changes:
+        - sql:
+            sql: CREATE TYPE unit_choice AS ENUM ('item', 'ml', 'l', 'grams', 'Kg')
+        - createTable:
+            tableName: recipe_ingredient
+            columns:
+              - column:
+                  name: recipe_ingredient_id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: recipe_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_recipe_id
+                    references: recipe(recipe_id)
+              - column:
+                  name: ingredient_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_ingredient_id
+                    references: ingredient(ingredient_id)
+              - column:
+                  name: amount
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: unit
+                  type: unit_choice
+                  constraints:
+                    nullable: false

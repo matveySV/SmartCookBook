@@ -1,4 +1,4 @@
-package com.matviienko.smart_cook_book.Entity.ENUM;
+package com.matviienko.smart_cook_book.repository.Entity.ENUM;
 
 public enum ComplexityLevel {
     EASY,

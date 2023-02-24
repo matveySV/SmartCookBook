@@ -1,4 +1,4 @@
-package com.matviienko.smart_cook_book.Entity;
+package com.matviienko.smart_cook_book.repository.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

@@ -1,6 +1,6 @@
-package com.matviienko.smart_cook_book.Entity;
+package com.matviienko.smart_cook_book.repository.Entity;
 
-import com.matviienko.smart_cook_book.Entity.ENUM.UnitChoice;
+import com.matviienko.smart_cook_book.repository.Entity.ENUM.UnitChoice;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

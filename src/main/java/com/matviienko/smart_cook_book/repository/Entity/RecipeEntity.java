@@ -1,7 +1,7 @@
-package com.matviienko.smart_cook_book.Entity;
+package com.matviienko.smart_cook_book.repository.Entity;
 
-import com.matviienko.smart_cook_book.Entity.ENUM.ComplexityLevel;
-import com.matviienko.smart_cook_book.Entity.ENUM.YieldTypeChoice;
+import com.matviienko.smart_cook_book.repository.Entity.ENUM.ComplexityLevel;
+import com.matviienko.smart_cook_book.repository.Entity.ENUM.YieldTypeChoice;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +19,7 @@ public class RecipeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int recipe_id;
+    private Integer recipe_id;
 
     @Column(nullable = false)
     private String name;

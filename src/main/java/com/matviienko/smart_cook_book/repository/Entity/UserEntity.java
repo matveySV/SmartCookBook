@@ -1,21 +1,20 @@
-package com.matviienko.smart_cook_book.Entity;
+package com.matviienko.smart_cook_book.repository.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class UserEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false)
-    private Long userId;
+    private Integer userId;
 
     @Column(name = "username", nullable = false)
     private String username;
@@ -25,7 +24,4 @@ public class UserEntity {
 
     @Column(name = "password", nullable = false)
     private String password;
-
-//    @OneToMany(mappedBy = "userEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    private RecipeEntity recipeEntity;
 }

@@ -4,8 +4,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
+@ToString
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,8 +26,10 @@ public class TagEntity {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity userEntity;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity userId;
 
+    @ManyToMany(mappedBy = "tags")
+    private Set<RecipeEntity> recipes;
 }

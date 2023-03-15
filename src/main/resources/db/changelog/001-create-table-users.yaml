@@ -4,26 +4,28 @@ databaseChangeLog:
       author: MatviienkoSerhii
       changes:
         - createTable:
-            tableName: user
+            tableName: users
             columns:
               - column:
                   name: user_id
                   type: int
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
+                    unique: true
               - column:
                   name: username
-                  type: varchar(50)
+                  type: VARCHAR(50)
                   constraints:
                     nullable: false
               - column:
                   name: email
-                  type: varchar(100)
+                  type: VARCHAR(50)
                   constraints:
                     nullable: false
               - column:
                   name: password
-                  type: varchar(100)
+                  type: VARCHAR(50)
                   constraints:
                     nullable: false

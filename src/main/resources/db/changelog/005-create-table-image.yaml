@@ -9,9 +9,11 @@ databaseChangeLog:
               - column:
                   name: image_id
                   type: int
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
+                    unique: true
               - column:
                   name: url
                   type: varchar(255)

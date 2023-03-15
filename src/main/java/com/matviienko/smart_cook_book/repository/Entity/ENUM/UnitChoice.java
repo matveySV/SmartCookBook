@@ -5,5 +5,5 @@ public enum UnitChoice {
     ml,
     l,
     grams,
-    Kg
+    kg
 }

@@ -3,19 +3,31 @@ databaseChangeLog:
       id: 002
       author: MatviienkoSerhii
       changes:
-#        - sql:
-#            sql: CREATE TYPE complexity_level AS ENUM ('EASY', 'AVERAGE', 'HARD')
         - sql:
-            sql: CREATE TYPE yield_type_choice AS ENUM ('SERVING', 'ITEM')
+            sql: DROP TYPE IF EXISTS yield_type CASCADE;
+        - sql:
+            sql: DROP TYPE IF EXISTS complexity_level CASCADE;
+        - sql:
+            sql: DROP CAST IF EXISTS (varchar AS complexity_level) CASCADE;
+        - sql:
+            sql: CREATE TYPE complexity_level AS ENUM ('EASY', 'AVERAGE', 'HARD')
+        - sql:
+            sql: CREATE TYPE yield_type AS ENUM ('SERVING', 'ITEM')
+        - sql:
+            sql: CREATE CAST (varchar AS complexity_level) WITH INOUT AS IMPLICIT;
+        - sql:
+            sql: CREATE CAST (varchar AS yield_type) WITH INOUT AS IMPLICIT;
         - createTable:
             tableName: recipe
             columns:
               - column:
                   name: recipe_id
                   type: int
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
+                    unique: true
               - column:
                   name: name
                   type: varchar(100)
@@ -23,58 +35,38 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: description
-                  type: varchar(1000)
-                  constraints:
-                    nullable: false
+                  type: varchar(500)
               - column:
                   name: note
                   type: varchar(500)
-                  constraints:
-                    nullable: true
               - column:
                   name: isfavorite
                   type: boolean
-                  constraints:
-                    nullable: false
               - column:
                   name: date
                   type: date
-                  constraints:
-                    nullable: false
               - column:
                   name: time
                   type: int
-                  constraints:
-                    nullable: false
               - column:
                   name: instruction
-                  type: varchar
-                  constraints:
-                    nullable: false
+                  type: varchar(1000)
               - column:
                   name: rate
                   type: int
-                  constraints:
-                    nullable: true
               - column:
                   name: yield
                   type: int
-                  constraints:
-                    nullable: false
               - column:
                   name: yield_type
-                  type: yield_type_choice
-                  constraints:
-                    nullable: false
+                  type: yield_type
               - column:
-                  name: complexity
+                  name: complexity_level
                   type: complexity_level
-                  constraints:
-                    nullable: false
               - column:
                   name: user_id
                   type: int
                   constraints:
-                    nullable: false
+#                    nullable: false
                     foreignKeyName: fk_user_id
-                    references: user(user_id)
+                    references: users(user_id)

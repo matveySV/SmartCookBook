@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 009
+      author: MatviienkoSerhii
+      changes:
+        - sql:
+            sql: DROP TYPE IF EXISTS unit_choice CASCADE;
+        - sql:
+            sql: CREATE TYPE unit_choice AS ENUM ('item', 'ml', 'l', 'grams', 'kg')
+        - sql:
+            sql: CREATE CAST (varchar AS unit_choice) WITH INOUT AS IMPLICIT;
+        - addColumn:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: amount
+                  type: int
+              - column:
+                  name: unit
+                  type: unit_choice

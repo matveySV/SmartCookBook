@@ -9,20 +9,22 @@ databaseChangeLog:
               - column:
                   name: recipe_tag_id
                   type: int
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
+                    unique: true
               - column:
                   name: recipe_id
                   type: int
                   constraints:
-                    nullable: false
+#                    nullable: false
                     foreignKeyName: fk_recipe_id
                     references: recipe(recipe_id)
               - column:
                   name: tag_id
                   type: int
                   constraints:
-                    nullable: false
+#                    nullable: false
                     foreignKeyName: fk_tag_id
                     references: tag(tag_id)

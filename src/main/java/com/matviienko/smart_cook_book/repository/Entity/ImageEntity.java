@@ -1,4 +1,4 @@
-package com.matviienko.smart_cook_book.Entity;
+package com.matviienko.smart_cook_book.repository.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,7 +17,7 @@ public class ImageEntity {
     @Column(name = "image_id")
     private Integer imageId;
 
-    @Column(name = "url", nullable = false)
+    @Column(name = "url")
     private String url;
 
     @ManyToOne(fetch = FetchType.LAZY)

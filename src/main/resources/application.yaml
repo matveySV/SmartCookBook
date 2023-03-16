@@ -4,4 +4,7 @@ spring:
     url: ${smart_cook_book.url}
     username: ${smart_cook_book.username}
     password: ${smart_cook_book.password}
-
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update

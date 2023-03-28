@@ -8,3 +8,9 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: update
+
+
+springdoc:
+  swagger-ui:
+    csrf:
+      enabled: true

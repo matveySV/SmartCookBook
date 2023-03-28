@@ -6,10 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 @ToString
 @Getter
 @Setter
@@ -30,6 +26,4 @@ public class TagEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity userId;
 
-    @ManyToMany(mappedBy = "tags")
-    private Set<RecipeEntity> recipes;
 }

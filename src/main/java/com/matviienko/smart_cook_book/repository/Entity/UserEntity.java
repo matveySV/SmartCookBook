@@ -1,12 +1,13 @@
 package com.matviienko.smart_cook_book.repository.Entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 @AllArgsConstructor
 @Builder
 @ToString
@@ -29,16 +30,11 @@ public class UserEntity {
 
     @Column(name = "password")
     private String password;
-//    @JsonManagedReference
-//    @OneToMany(mappedBy = "userEntity",
-//            fetch = FetchType.LAZY,
-//            cascade = CascadeType.ALL)
-//    private List<RecipeEntity> recipeEntityList;
 
     @OneToMany(mappedBy = "userId")
     private List<RecipeEntity> recipes = new ArrayList<>();
 
-    @OneToMany(mappedBy = "userId")
+    @OneToMany(mappedBy = "userId",  cascade = CascadeType.ALL)
     private List<TagEntity> tags = new ArrayList<>();
 
     public UserEntity(String username, String email, String password) {

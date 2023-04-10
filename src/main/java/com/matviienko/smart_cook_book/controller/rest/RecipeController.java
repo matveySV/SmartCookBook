@@ -23,8 +23,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/recipe")
 public class RecipeController {
-    @Autowired
     private final RecipeService recipeService;
+    private final AuthRestController authRestController;
 
 
     @GetMapping("/{recipeId}")

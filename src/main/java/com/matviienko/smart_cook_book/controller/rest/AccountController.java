@@ -22,8 +22,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class AccountController {
-    @Autowired
     private final UserService userService;
+
+
+
 
     @DeleteMapping("/{UserId}")
     public ResponseEntity<Void> deleteStudent(@PathVariable Integer UserId) {

@@ -6,6 +6,7 @@ import com.matviienko.smart_cook_book.repository.Entity.UserEntity;
 import com.matviienko.smart_cook_book.repository.UserRepository;
 import com.matviienko.smart_cook_book.security.UsersDetails;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,14 +14,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-
-//    @Value("${constant.expired}")
-//    private int expired;
 
 
     public void createUser(String username, String email, String password) {
@@ -56,5 +55,11 @@ public class UserService {
         UserEntity userEntity = userRepository.findById(userId)
                 .orElseThrow(DataNotFoundException::new);
         userRepository.delete(userEntity);
+    }
+
+    public UserEntity findByUsername(String username) {
+        Optional<UserEntity> result = userRepository.findByUsername(username);
+        log.info("IN findByUsername - user: {} found by username: {}", result, username);
+        return result.get();
     }
 }

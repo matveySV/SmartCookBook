@@ -1,5 +1,6 @@
 package com.matviienko.smart_cook_book.controller;
 
+import com.matviienko.smart_cook_book.controller.rest.AuthRestController;
 import com.matviienko.smart_cook_book.dto.UserDto;
 import com.matviienko.smart_cook_book.dto.mapper.UserMapper;
 import com.matviienko.smart_cook_book.repository.Entity.UserEntity;
@@ -7,6 +8,7 @@ import com.matviienko.smart_cook_book.security.UsersDetails;
 import com.matviienko.smart_cook_book.service.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
